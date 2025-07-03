@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --background: 30 20% 97% / 0.7;
+    --foreground: 210 15% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 25%;
+    --primary: 220 19% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 40% 90%;
+    --secondary-foreground: 200 30% 35%;
+    --muted: 30 20% 94%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 40 22% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 15% 88%;
+    --input: 0 0% 80%;
+    --ring: 208 21% 45%;
+    --radius: 0.5rem;
+
+    /* Sidebar Light Theme with Blur */
+    --sidebar-background: 220 19% 100% / 0.25;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 208 21% 35%;
+    --sidebar-ring: hsl(var(--accent));
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 100%;
+
+    /* Blur Effects */
+    --sidebar-blur: 12px;
+    --sidebar-backdrop-brightness: 1.05;
+    --sidebar-backdrop-saturate: 1.2;
+  }
+
+  .dark {
+    /* Dark Theme */
+    --background: 220 19% 15% / 0.6;
+    --foreground: 0 0% 95%;
+    --card: 208 24% 15%;
+    --card-foreground: 0 0% 95%;
+    --popover: 208 24% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 208 24% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 208 24% 25%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 208 24% 20%;
+    --muted-foreground: 208 10% 60%;
+    --accent: 40 20% 63%;
+    --accent-foreground: 208 24% 10%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 208 24% 25%;
+    --input: 208 24% 25%;
+    --ring: 208 24% 55%;
+    
+    /* Sidebar Dark Theme with Blur */
+    --sidebar-background: 220 19% 10% / 0.25;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 40 20% 63%;
+    --sidebar-primary-foreground: 208 24% 10%;
+    --sidebar-accent: 208 24% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 208 24% 18%;
+    --sidebar-ring: 40 20% 63%;
+    
+    /* Dark Mode Blur Effects */
+    --sidebar-blur: 16px;
+    --sidebar-backdrop-brightness: 0.95;
+    --sidebar-backdrop-saturate: 1.1;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground font-body antialiased transition-colors duration-300;
+    background-color: hsl(var(--background));
+    background-image: url('/AdobeStock_1053427603.jpeg');
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .dark body {
+    background-color: hsl(var(--background));
+    background-image: url('/AdobeStock_888757105.jpeg');
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+
+  body, html {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  /* Backdrop filter fallback */
+  @supports not (backdrop-filter: blur(1px)) {
+    :root {
+      --sidebar-background: 220 19% 45% / 0.95;
+    }
+    .dark {
+      --sidebar-background: 220 19% 1% / 0.15;
+    }
+  }
+}
